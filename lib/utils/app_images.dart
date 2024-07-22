@@ -25,6 +25,10 @@ class Assets {
   /// assets/images/josua.svg
   static const String imagesJosua = "assets/images/josua.svg";
 
+  /// Assets for imagesLekanOkeowo
+  /// assets/images/lekan_okeowo.svg
+  static const String imagesLekanOkeowo = "assets/images/lekan_okeowo.svg";
+
   /// Assets for imagesLogout
   /// assets/images/logout.svg
   static const String imagesLogout = "assets/images/logout.svg";
