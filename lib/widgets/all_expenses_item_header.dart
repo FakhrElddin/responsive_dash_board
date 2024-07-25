@@ -5,9 +5,13 @@ class AllExpensesItemHeader extends StatelessWidget {
   const AllExpensesItemHeader({
     super.key,
     required this.image,
+    required this.imageBackgroundColor,
+    required this.imageColor,
+    required this.iconColor,
   });
 
   final String image;
+  final Color imageBackgroundColor, imageColor, iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,19 +20,24 @@ class AllExpensesItemHeader extends StatelessWidget {
         Container(
           width: 60,
           height: 60,
-          decoration: const ShapeDecoration(
-            color: Color(0xffFAFAFA),
-            shape: OvalBorder(),
+          decoration: ShapeDecoration(
+            color: imageBackgroundColor,
+            shape: const OvalBorder(),
           ),
           child: Center(
             child: SvgPicture.asset(
               image,
+              colorFilter: ColorFilter.mode(
+                imageColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
         ),
         const Spacer(),
-        const Icon(
+        Icon(
           Icons.arrow_forward_ios,
+          color: iconColor,
         ),
       ],
     );
