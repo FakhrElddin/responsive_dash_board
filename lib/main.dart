@@ -15,7 +15,18 @@ class ResponsiveDashBoard extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scrollBehavior: customScrollBehavior(),
+      theme: ThemeData().copyWith(
+        textSelectionTheme: customTextSelectionTheme(),
+      ),
       home: const DashboardView(),
+    );
+  }
+
+  TextSelectionThemeData customTextSelectionTheme() {
+    return TextSelectionThemeData(
+      cursorColor: const Color(0xff4EB7F2),
+      selectionColor: const Color(0xff4EB7F2).withOpacity(0.5),
+      selectionHandleColor: const Color(0xff4EB7F2),
     );
   }
 
