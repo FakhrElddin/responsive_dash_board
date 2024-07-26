@@ -14,15 +14,19 @@ class ResponsiveDashBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      scrollBehavior: const MaterialScrollBehavior().copyWith(
-        dragDevices: {
-          PointerDeviceKind.mouse,
-          PointerDeviceKind.touch,
-          PointerDeviceKind.stylus,
-          PointerDeviceKind.unknown,
-        },
-      ),
+      scrollBehavior: customScrollBehavior(),
       home: const DashboardView(),
+    );
+  }
+
+  ScrollBehavior customScrollBehavior() {
+    return const MaterialScrollBehavior().copyWith(
+      dragDevices: {
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.touch,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.unknown,
+      },
     );
   }
 }
