@@ -34,7 +34,9 @@ class DashboardDesktopLayout extends StatelessWidget {
               SizedBox(
                 height: 24,
               ),
-              Expanded(child: IncomeSection()),
+              Expanded(
+                child: IncomeSection(),
+              ),
             ],
           ),
         ),
