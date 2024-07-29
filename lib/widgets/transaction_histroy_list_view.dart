@@ -28,15 +28,27 @@ class TransactionHistroyListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      itemBuilder: (context, index) => TransactionItem(
-        transactionModel: items[index],
-      ),
-      separatorBuilder: (context, index) => const SizedBox(
-        height: 28,
-      ),
-      itemCount: items.length,
+    return Column(
+      children: items
+          .asMap()
+          .entries
+          .map((e) => Padding(
+                padding: EdgeInsets.only(
+                  bottom: e.key != items.length - 1 ? 12.0 : 0,
+                ),
+                child: TransactionItem(transactionModel: e.value),
+              ))
+          .toList(),
     );
+    // return ListView.separated(
+    //   shrinkWrap: true,
+    //   itemBuilder: (context, index) => TransactionItem(
+    //     transactionModel: items[index],
+    //   ),
+    //   separatorBuilder: (context, index) => const SizedBox(
+    //     height: 28,
+    //   ),
+    //   itemCount: items.length,
+    // );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dash_board/utils/size_config.dart';
 import 'package:responsive_dash_board/widgets/adaptive_layout.dart';
 import 'package:responsive_dash_board/widgets/custom_darwer.dart';
 import 'package:responsive_dash_board/widgets/dashboard_desktop_layout.dart';
@@ -12,11 +13,12 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return Scaffold(
       key: scafforldKey,
       drawer:
-          MediaQuery.sizeOf(context).width < 800 ? const CustomDarwer() : null,
-      appBar: MediaQuery.sizeOf(context).width < 800
+          MediaQuery.sizeOf(context).width < SizeConfig.tablet ? const CustomDarwer() : null,
+      appBar: MediaQuery.sizeOf(context).width < SizeConfig.tablet
           ? AppBar(
               backgroundColor: const Color(0xff4EB7F2),
               elevation: 0,
