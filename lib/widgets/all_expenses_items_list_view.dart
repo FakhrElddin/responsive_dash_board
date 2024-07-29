@@ -37,30 +37,73 @@ class _AllExpensesItemsListViewState extends State<AllExpensesItemsListView> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: items.asMap().entries.map((e) {
-        return Expanded(
+      children: [
+        Expanded(
           child: GestureDetector(
             onTap: () {
-              updateIndex(e);
+              updateIndex(0);
             },
-            child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: e.key == 1 ? 12.0 : 0.0),
-              child: AllExpnesesItem(
-                allExpensesItemModel: e.value,
-                isActive: selectedIndex == e.key ? true : false,
-              ),
+            child: AllExpnesesItem(
+              allExpensesItemModel: items[0],
+              isActive: selectedIndex == 0 ? true : false,
             ),
           ),
-        );
-      }).toList(),
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(1);
+            },
+            child: AllExpnesesItem(
+              allExpensesItemModel: items[1],
+              isActive: selectedIndex == 1 ? true : false,
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: GestureDetector(
+            onTap: () {
+              updateIndex(2);
+            },
+            child: AllExpnesesItem(
+              allExpensesItemModel: items[2],
+              isActive: selectedIndex == 2 ? true : false,
+            ),
+          ),
+        ),
+      ],
     );
+    // return Row(
+    //   children: items.asMap().entries.map((e) {
+    //     return Expanded(
+    //       child: GestureDetector(
+    //         onTap: () {
+    //           updateIndex(e.key);
+    //         },
+    //         child: Padding(
+    //           padding:
+    //               EdgeInsets.symmetric(horizontal: e.key == 1 ? 12.0 : 0.0),
+    //           child: AllExpnesesItem(
+    //             allExpensesItemModel: e.value,
+    //             isActive: selectedIndex == e.key ? true : false,
+    //           ),
+    //         ),
+    //       ),
+    //     );
+    //   }).toList(),
+    // );
   }
 
-  void updateIndex(MapEntry<int, AllExpensesItemModel> e) {
-    if (selectedIndex != e.key) {
+  void updateIndex(int index) {
+    if (selectedIndex != index) {
       setState(() {
-        selectedIndex = e.key;
+        selectedIndex = index;
       });
     }
   }
