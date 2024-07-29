@@ -9,9 +9,9 @@ class TransactionHistoryHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
+        Text(
           'Transaction History',
-          style: AppStyles.textStyleSemiBold20,
+          style: AppStyles.textStyleSemiBold20(context),
         ),
         TextButton(
           style: TextButton.styleFrom(
@@ -20,7 +20,7 @@ class TransactionHistoryHeader extends StatelessWidget {
           onPressed: () {},
           child: Text(
             'See all',
-            style: AppStyles.textStyleMedium16.copyWith(
+            style: AppStyles.textStyleMedium16(context).copyWith(
               color: const Color(0xff4EB7F2),
             ),
           ),

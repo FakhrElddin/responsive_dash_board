@@ -17,7 +17,7 @@ class ActiveDrawerItem extends StatelessWidget {
       leading: SvgPicture.asset(drawerItemModel.image),
       title: Text(
         drawerItemModel.title,
-        style: AppStyles.textStyleBold16,
+        style: AppStyles.textStyleBold16(context),
       ),
       trailing: Container(
         width: 3.26,
@@ -41,7 +41,7 @@ class InActiveDrawerItem extends StatelessWidget {
       leading: SvgPicture.asset(drawerItemModel.image),
       title: Text(
         drawerItemModel.title,
-        style: AppStyles.textStyleRegular16,
+        style: AppStyles.textStyleRegular16(context),
       ),
     );
   }
